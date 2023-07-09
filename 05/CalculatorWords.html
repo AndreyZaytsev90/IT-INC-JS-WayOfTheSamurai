@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CalculatorWords</title>
+  </head>
+  <body>
+    <script>
+      let name;
+      let word;
+      let apple;
+      let answersCount = 3;
+      let currentAnswersCount = 0;
+
+      const nameTranslate = "имя";
+      const wordTranslate = "слово";
+      const appleTranslate = "яблоко";
+      const error = "Не правильно!";
+      const greatJob = "Молодец!";
+      const badJob = "Надо еще подучить!";
+
+      name = prompt("Name").toLowerCase().trim();
+      if (name === nameTranslate) {
+        currentAnswersCount += 1;
+        alert(`Правельно! ${nameTranslate}`);
+      } else {
+        alert(error);
+      }
+
+      word = prompt("Word").toLowerCase().trim();
+      if (word == wordTranslate) {
+        currentAnswersCount += 1;
+        alert(`Правельно! ${wordTranslate}`);
+      } else {
+        alert(error);
+      }
+      apple = prompt("Apple").toLowerCase().trim();
+      if (apple == appleTranslate) {
+        currentAnswersCount += 1;
+        alert(`Правельно! ${appleTranslate}`);
+      } else {
+        alert(error);
+      }
+
+      const usersCorrectAnswerPercent =
+        (currentAnswersCount / answersCount) * 100;
+      const correctAnswersMinPercent = 50;
+
+      usersCorrectAnswerPercent > correctAnswersMinPercent
+        ? alert(greatJob)
+        : alert(badJob);
+
+      alert(
+        `Количество правильных ответов: ${
+          (currentAnswersCount / answersCount) * 100
+        }%,  ${currentAnswersCount} из ${answersCount}`
+      );
+    </script>
+  </body>
+</html>
