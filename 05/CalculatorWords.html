@@ -24,24 +24,24 @@
       name = prompt("Name").toLowerCase().trim();
       if (name === nameTranslate) {
         currentAnswersCount += 1;
-        alert(`Правельно! ${nameTranslate}`);
+        document.write(`Правельно! ${nameTranslate}`, "<br>");
       } else {
-        alert(error);
+        document.write(error, "<br>");
       }
 
       word = prompt("Word").toLowerCase().trim();
       if (word == wordTranslate) {
         currentAnswersCount += 1;
-        alert(`Правельно! ${wordTranslate}`);
+        document.write(`Правельно! ${wordTranslate}`, "<br>");
       } else {
-        alert(error);
+        document.write(error, "<br>");
       }
       apple = prompt("Apple").toLowerCase().trim();
       if (apple == appleTranslate) {
         currentAnswersCount += 1;
-        alert(`Правельно! ${appleTranslate}`);
+        document.write(`Правельно! ${appleTranslate}`, "<br>");
       } else {
-        alert(error);
+        document.write(error, "<br>");
       }
 
       const usersCorrectAnswerPercent =
@@ -49,13 +49,14 @@
       const correctAnswersMinPercent = 50;
 
       usersCorrectAnswerPercent > correctAnswersMinPercent
-        ? alert(greatJob)
-        : alert(badJob);
+        ? document.write("Вердикт: ", greatJob, "<br>")
+        : document.write("Вердикт: ", badJob, "<br>");
 
-      alert(
-        `Количество правильных ответов: ${
+      document.write(
+        ` Количество правильных ответов: ${
           (currentAnswersCount / answersCount) * 100
-        }%,  ${currentAnswersCount} из ${answersCount}`
+        }%,  ${currentAnswersCount} из ${answersCount}`,
+        "<br>"
       );
     </script>
   </body>
