@@ -7,11 +7,16 @@
   </head>
   <body>
     <script>
-      document.write("hello", "<br>");
-      if (true) {
-        document.write("true");
+      let balance = 110;
+      const product1Price = 110;
+      //------------------------
+
+      document.write("Start", "<br>");
+      //if (balance >= product1Price) {
+      if (product1Price <= balance) {
+        document.write("Product purchased");
       } else {
-        document.write("false");
+        document.write("Not enough money");
       }
       document.write("<br>", "End");
     </script>
