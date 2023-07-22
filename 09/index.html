@@ -7,17 +7,79 @@
   </head>
   <body>
     <script>
-      let balance = 110;
-      const product1Price = 110;
-      //------------------------
+      let balance = 130;
+      let productPrice;
 
-      document.write("Start", "<br>");
-      //if (balance >= product1Price) {
-      if (product1Price <= balance) {
-        document.write("Product purchased");
-      } else {
-        document.write("Not enough money");
+      function Prompt() {
+        return Number(window.prompt("Enter the cost of the product"));
       }
+
+      function notEnoughMoney() {
+        document.write(
+          "<br>",
+          `Not enough money. The item cannot be so the account balance: ${balance} $, and the product costs ${productPrice} $`
+        );
+      }
+
+      window.document.write("Start", "<br>");
+      //if (balance >= product1Price) {
+      // if (product1Price <= balance) {
+      //   document.write("Product purchased");
+      // } else {
+      //   document.write("Not enough money");
+      // }
+
+      alert(`Current balance: ${balance} $`);
+
+      productPrice = Prompt();
+
+      if (balance < productPrice) {
+        notEnoughMoney();
+        alert(
+          `The item cannot be so the account balance: ${balance} $, and the product costs ${productPrice} $`
+        );
+      } else {
+        document.write(
+          "<br>",
+          `The product was purchased for ${productPrice} $`
+        );
+        balance -= productPrice;
+      }
+
+      balance > 0 ? (productPrice = Prompt()) : null;
+
+      if (balance < productPrice) {
+        notEnoughMoney();
+        alert(
+          `The item cannot be so the account balance: ${balance} $, and the product costs ${productPrice} $`
+        );
+      } else {
+        document.write(
+          "<br>",
+          `The product was purchased for ${productPrice} $`
+        );
+        balance -= productPrice;
+      }
+
+      balance > 0 ? (productPrice = Prompt()) : null;
+
+      if (balance < productPrice) {
+        notEnoughMoney();
+        alert(
+          `The item cannot be so the account balance: ${balance} $, and the product costs ${productPrice} $`
+        );
+      } else {
+        document.write(
+          "<br>",
+          `The product was purchased for ${productPrice} $`
+        );
+        balance -= productPrice;
+      }
+
+      alert(`Current balance is: ${balance} $`);
+
+      document.write("<br>", `Current balance is: ${balance} $`, "<br>");
+
       document.write("<br>", "End");
     </script>
   </body>
