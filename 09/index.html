@@ -9,77 +9,64 @@
     <script>
       let balance = 130;
       let productPrice;
+      let product1 = "Milk";
+      let product2 = "Bread";
+      let product3 = "Coffee";
 
       function Prompt() {
         return Number(window.prompt("Enter the cost of the product"));
       }
 
-      function notEnoughMoney() {
+      function notEnoughMoney(product) {
+        alert(
+          `The ${product} cannot be so the account balance: ${balance} $, and the ${product} costs ${productPrice} $`
+        );
         document.write(
           "<br>",
-          `Not enough money. The item cannot be so the account balance: ${balance} $, and the product costs ${productPrice} $`
+          `Not enough money. The ${product} cannot be so the account balance: ${balance} $, and the ${product} costs ${productPrice} $`
         );
+      }
+
+      function enoughMoney(product) {
+        document.write(
+          "<br>",
+          `The ${product} was purchased for ${productPrice} $`
+        );
+        balance -= productPrice;
+      }
+
+      function impossibleToBuy(product) {
+        alert(
+          `It is impossible to buy ${product} for strings, dollars are needed!`
+        );
+        document.write("<br>", "Incurrect data");
+      }
+
+      function Input(product) {
+        balance > 0 ? (productPrice = Prompt()) : null;
+        if (!Number.isNaN(productPrice) && productPrice > 0) {
+          if (balance < productPrice) {
+            notEnoughMoney(product);
+          } else {
+            enoughMoney(product);
+            alert(
+              `The purchase of the ${product} was successful for ${productPrice}$.  Current balance is: ${balance} $`
+            );
+          }
+        } else {
+          impossibleToBuy(product);
+        }
       }
 
       window.document.write("Start", "<br>");
-      //if (balance >= product1Price) {
-      // if (product1Price <= balance) {
-      //   document.write("Product purchased");
-      // } else {
-      //   document.write("Not enough money");
-      // }
-
-      alert(`Current balance: ${balance} $`);
-
-      productPrice = Prompt();
-
-      if (balance < productPrice) {
-        notEnoughMoney();
-        alert(
-          `The item cannot be so the account balance: ${balance} $, and the product costs ${productPrice} $`
-        );
-      } else {
-        document.write(
-          "<br>",
-          `The product was purchased for ${productPrice} $`
-        );
-        balance -= productPrice;
-      }
-
-      balance > 0 ? (productPrice = Prompt()) : null;
-
-      if (balance < productPrice) {
-        notEnoughMoney();
-        alert(
-          `The item cannot be so the account balance: ${balance} $, and the product costs ${productPrice} $`
-        );
-      } else {
-        document.write(
-          "<br>",
-          `The product was purchased for ${productPrice} $`
-        );
-        balance -= productPrice;
-      }
-
-      balance > 0 ? (productPrice = Prompt()) : null;
-
-      if (balance < productPrice) {
-        notEnoughMoney();
-        alert(
-          `The item cannot be so the account balance: ${balance} $, and the product costs ${productPrice} $`
-        );
-      } else {
-        document.write(
-          "<br>",
-          `The product was purchased for ${productPrice} $`
-        );
-        balance -= productPrice;
-      }
 
       alert(`Current balance is: ${balance} $`);
 
-      document.write("<br>", `Current balance is: ${balance} $`, "<br>");
+      Input(product1);
+      Input(product2);
+      Input(product3);
 
+      document.write("<br>", `Current balance is: ${balance} $`, "<br>");
       document.write("<br>", "End");
     </script>
   </body>
