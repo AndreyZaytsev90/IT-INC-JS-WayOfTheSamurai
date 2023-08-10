@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CalculatorWords</title>
+  </head>
+  <body>
+    <script>
+      const vocabulary = {
+        word0: {
+          original: "",
+          translate: "Имя",
+        },
+        word1: {
+          original: "",
+          translate: "Слово",
+        },
+        word2: {
+          original: "",
+          translate: "Яблоко",
+        },
+      };
+
+      const messages = {
+        start: {
+          hello: "Hello man. You can learn English! Good luck!",
+        },
+        error: "Не правильно!",
+        final: {
+          greatJob: "Молодец!",
+          badJob: "Надо еще подучить!",
+        },
+      };
+
+      const settings = {
+        answersCount: 3,
+        correctAnswersMinPercent: 50,
+      };
+
+      const result = {
+        currentAnswersCount: 0,
+      };
+
+      alert(messages.start.hello);
+
+      vocabulary.word0.original = prompt("Name").toLowerCase().trim();
+      if (
+        vocabulary.word0.original === vocabulary.word0.translate.toLowerCase()
+      ) {
+        result.currentAnswersCount += 1;
+        document.write(`Правельно! ${vocabulary.word0.translate}`, "<br>");
+      } else {
+        document.write(messages.error, "<br>");
+      }
+
+      vocabulary.word1.original = prompt("Word").toLowerCase().trim();
+      if (
+        vocabulary.word1.original === vocabulary.word1.translate.toLowerCase()
+      ) {
+        result.currentAnswersCount += 1;
+        document.write(`Правельно! ${vocabulary.word1.translate}`, "<br>");
+      } else {
+        document.write(messages.error, "<br>");
+      }
+
+      vocabulary.word2.original = prompt("Apple").toLowerCase().trim();
+      if (
+        vocabulary.word2.original === vocabulary.word2.translate.toLowerCase()
+      ) {
+        result.currentAnswersCount += 1;
+        document.write(`Правельно! ${vocabulary.word2.translate}`, "<br>");
+      } else {
+        document.write(messages.error, "<br>");
+      }
+
+      const usersCorrectAnswerPercent =
+        (result.currentAnswersCount / settings.answersCount) * 100;
+
+      usersCorrectAnswerPercent > settings.correctAnswersMinPercent
+        ? document.write("Вердикт: ", messages.final.greatJob, "<br>")
+        : document.write("Вердикт: ", messages.final.badJob, "<br>");
+
+      document.write(
+        ` Количество правильных ответов: ${(
+          (result.currentAnswersCount / settings.answersCount) *
+          100
+        ).toFixed(1)}%,
+           ${result.currentAnswersCount} из ${settings.answersCount}`,
+        "<br>"
+      );
+    </script>
+  </body>
+</html>
