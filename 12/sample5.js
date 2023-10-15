@@ -14,3 +14,4 @@ let shoppingLists = [
 ];
 
 console.log(shoppingLists[1][1]);
+console.log(shoppingLists.length);

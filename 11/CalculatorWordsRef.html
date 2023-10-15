@@ -8,20 +8,20 @@
   </head>
   <body>
     <script>
-      const vocabulary = {
-        word0: {
-          original: "",
+      const words = [
+        {
+          original: "Name",
           translate: "Имя",
         },
-        word1: {
-          original: "",
+        {
+          original: "Word",
           translate: "Слово",
         },
-        word2: {
-          original: "",
+        {
+          original: "Apple",
           translate: "Яблоко",
         },
-      };
+      ];
 
       const messages = {
         start: {
@@ -35,7 +35,6 @@
       };
 
       const settings = {
-        answersCount: 3,
         correctAnswersMinPercent: 50,
       };
 
@@ -45,38 +44,42 @@
 
       alert(messages.start.hello);
 
-      vocabulary.word0.original = prompt("Name").toLowerCase().trim();
-      if (
-        vocabulary.word0.original === vocabulary.word0.translate.toLowerCase()
-      ) {
-        result.currentAnswersCount += 1;
-        document.write(`Правельно! ${vocabulary.word0.translate}`, "<br>");
-      } else {
-        document.write(messages.error, "<br>");
+      for (let i = 0; i < words.length; i++) {
+        words[i].original = prompt(words[i].original).toLowerCase().trim();
+        if (words[i].original === words[i].translate.toLowerCase()) {
+          result.currentAnswersCount += 1;
+          document.write(`Правельно! ${words[i].translate}`, "<br>");
+        } else {
+          document.write(messages.error, "<br>");
+        }
       }
 
-      vocabulary.word1.original = prompt("Word").toLowerCase().trim();
-      if (
-        vocabulary.word1.original === vocabulary.word1.translate.toLowerCase()
-      ) {
-        result.currentAnswersCount += 1;
-        document.write(`Правельно! ${vocabulary.word1.translate}`, "<br>");
-      } else {
-        document.write(messages.error, "<br>");
-      }
+      // words[0].original = prompt("Name").toLowerCase().trim();
+      // if (words[0].original === words[0].translate.toLowerCase()) {
+      //   result.currentAnswersCount += 1;
+      //   document.write(`Правельно! ${words[0].translate}`, "<br>");
+      // } else {
+      //   document.write(messages.error, "<br>");
+      // }
 
-      vocabulary.word2.original = prompt("Apple").toLowerCase().trim();
-      if (
-        vocabulary.word2.original === vocabulary.word2.translate.toLowerCase()
-      ) {
-        result.currentAnswersCount += 1;
-        document.write(`Правельно! ${vocabulary.word2.translate}`, "<br>");
-      } else {
-        document.write(messages.error, "<br>");
-      }
+      // words[1].original = prompt("Word").toLowerCase().trim();
+      // if (words[1].original === words[1].translate.toLowerCase()) {
+      //   result.currentAnswersCount += 1;
+      //   document.write(`Правельно! ${words[1].translate}`, "<br>");
+      // } else {
+      //   document.write(messages.error, "<br>");
+      // }
+
+      // words[2].original = prompt("Apple").toLowerCase().trim();
+      // if (words[2].original === words[2].translate.toLowerCase()) {
+      //   result.currentAnswersCount += 1;
+      //   document.write(`Правельно! ${words[2].translate}`, "<br>");
+      // } else {
+      //   document.write(messages.error, "<br>");
+      // }
 
       const usersCorrectAnswerPercent =
-        (result.currentAnswersCount / settings.answersCount) * 100;
+        (result.currentAnswersCount / words.length) * 100;
 
       usersCorrectAnswerPercent > settings.correctAnswersMinPercent
         ? document.write("Вердикт: ", messages.final.greatJob, "<br>")
@@ -84,10 +87,10 @@
 
       document.write(
         ` Количество правильных ответов: ${(
-          (result.currentAnswersCount / settings.answersCount) *
+          (result.currentAnswersCount / words.length) *
           100
         ).toFixed(1)}%,
-           ${result.currentAnswersCount} из ${settings.answersCount}`,
+           ${result.currentAnswersCount} из ${words.length}`,
         "<br>"
       );
     </script>
