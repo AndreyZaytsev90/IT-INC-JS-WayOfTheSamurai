@@ -15,6 +15,8 @@ const myLapTop = {
   },
   price: 1200,
 };
+console.log(myLapTop.manufacturer.address);
+console.log(myLapTop.price);
 
 const lapTopWife = {
   name: "Book",
