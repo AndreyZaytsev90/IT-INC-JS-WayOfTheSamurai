@@ -1,4 +1,4 @@
-// document.write("a");
+ // document.write("a");
 // document.write("a");
 // document.write("a");
 
@@ -11,10 +11,10 @@ let repeatCount = 3;
 let index = 1;
 //проверка
 if (index <= repeatCount) {
-  //целевое дейстие
+  //целевое действие
   document.write("a");
 }
-//Инкрементируем индекс
+//Инкриминируем индекс
 index = 2;
 // ......
 if (index <= repeatCount) {
