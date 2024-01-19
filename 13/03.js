@@ -28,11 +28,12 @@ const students = [
     },
     {
         name: 'Olga',
-        age: 36
+        age: 35
     }
 ]
 
 for (let i = 0; i < students.length; i++) {
+    document.write('<br>')
     document.write(students[i] && students[i].name, '<br>')
     document.write('<br>')
 }

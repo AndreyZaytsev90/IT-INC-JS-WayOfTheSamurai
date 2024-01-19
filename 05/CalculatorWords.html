@@ -1,63 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>CalculatorWords</title>
-  </head>
-  <body>
-    <script>
-      let name;
-      let word;
-      let apple;
-      let answersCount = 3;
-      let currentAnswersCount = 0;
+</head>
+<body>
+<script>
 
-      const nameTranslate = "имя";
-      const wordTranslate = "слово";
-      const appleTranslate = "яблоко";
-      const error = "Не правильно!";
-      const greatJob = "Молодец!";
-      const badJob = "Надо еще подучить!";
+    let dictionary = [
+        {eng: "Name", rus: "Имя"},
+        {eng: "Word", rus: "Слово"},
+        {eng: "Apple", rus: "Яблоко"},
+    ]
 
-      name = prompt("Name").toLowerCase().trim();
-      if (name === nameTranslate) {
-        currentAnswersCount += 1;
-        document.write(`Правельно! ${nameTranslate}`, "<br>");
-      } else {
-        document.write(error, "<br>");
-      }
+    let settings = {
+        answersCount: dictionary.length
+    }
+    let messages = {
+        hello: "Привет! Напиши мне перевод на русский язык следующих слов!",
+        greatJob: "Молодец!",
+        badJob: "Надо еще подучить!",
+        error: "Не правильно! Добавлен в словарь ошибок"
+    }
+    let currentAnswersCount = 0;
 
-      word = prompt("Word").toLowerCase().trim();
-      if (word == wordTranslate) {
-        currentAnswersCount += 1;
-        document.write(`Правельно! ${wordTranslate}`, "<br>");
-      } else {
-        document.write(error, "<br>");
-      }
-      apple = prompt("Apple").toLowerCase().trim();
-      if (apple == appleTranslate) {
-        currentAnswersCount += 1;
-        document.write(`Правельно! ${appleTranslate}`, "<br>");
-      } else {
-        document.write(error, "<br>");
-      }
+    let mistakes = []
 
-      const usersCorrectAnswerPercent =
-        (currentAnswersCount / answersCount) * 100;
-      const correctAnswersMinPercent = 50;
+    alert(messages.hello)
 
-      usersCorrectAnswerPercent > correctAnswersMinPercent
-        ? document.write("Вердикт: ", greatJob, "<br>")
-        : document.write("Вердикт: ", badJob, "<br>");
+    for (let i = 0; i < dictionary.length; i++) {
+        let printedText = prompt(dictionary[i].eng).toLowerCase().trim();
+        if (printedText.toLowerCase().trim() === dictionary[i].rus.toLowerCase().trim()) {
+            currentAnswersCount += 1;
+            document.write(`Правильно! ---> ${dictionary[i].rus}`, "<br>");
+        } else {
+            mistakes.push(printedText)
+            document.write(messages.error, "<br>");
+        }
+    }
+    document.write("================", "<br>")
 
-      document.write(
+    const usersCorrectAnswerPercent =
+        (currentAnswersCount / settings.answersCount) * 100;
+    const correctAnswersMinPercent = 50;
+
+    usersCorrectAnswerPercent > correctAnswersMinPercent
+        ? document.write("Вердикт: ", messages.greatJob, "<br>")
+        : document.write("Вердикт: ", messages.badJob, "<br>");
+
+    document.write(
         ` Количество правильных ответов: ${
-          (currentAnswersCount / answersCount) * 100
-        }%,  ${currentAnswersCount} из ${answersCount}`,
+            (currentAnswersCount / settings.answersCount) * 100
+        }%,  ${currentAnswersCount} из ${settings.answersCount}`,
         "<br>"
-      );
-    </script>
-  </body>
+    );
+    document.write("Ошибки в словах, допущенные во время перевода: ", mistakes)
+
+</script>
+</body>
 </html>
